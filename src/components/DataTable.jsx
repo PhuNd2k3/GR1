@@ -12,12 +12,12 @@ import { Button } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 export default function DataTable() {
   const [mssv, setMssv] = React.useState("");
   const [fullname, setFullname] = React.useState("");
   const [birthdate, setBirthdate] = React.useState(null);
   const [email, setEmail] = React.useState("");
-
   const [dataList, setDataList] = React.useState([]);
 
   const handleCreateStudent = (student) => {
@@ -29,14 +29,20 @@ export default function DataTable() {
   };
 
   const handleDeleteStudent = (index) => {
-    // const dataFiltered = dataList.filter((student) => student.mssv !== mssv);
     const dataFiltered = [...dataList];
     dataFiltered.splice(index, 1);
     setDataList(dataFiltered);
   };
 
   return (
-    <div style={{ height: 400, width: "100%", padding: "0 50px " }}>
+    <div
+      style={{
+        height: 400,
+        width: "100%",
+        padding: "50px ",
+        marginBottom: "20px",
+      }}
+    >
       <Box
         component="form"
         sx={{
@@ -102,42 +108,45 @@ export default function DataTable() {
         </div>
       </Box>
 
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">STT</TableCell>
-              <TableCell align="center">MSSV</TableCell>
-              <TableCell align="center">Ho va ten</TableCell>
-              <TableCell align="center">Ngay sinh</TableCell>
-              <TableCell align="center">Email</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {dataList.length > 0 &&
-              dataList.map((row, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell align="center">{index + 1}</TableCell>
-                  <TableCell align="center">{row.mssv}</TableCell>
-                  <TableCell align="center">{row.fullname}</TableCell>
-                  <TableCell align="center">{row.birthdate}</TableCell>
-                  <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">
-                    <Button
-                      variant="contained"
-                      onClick={() => handleDeleteStudent(index)}
-                    >
-                      Xóa
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <div>
+        <TableContainer component={Paper} sx={{ maxHeight: "500px" }}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">STT</TableCell>
+                <TableCell align="center">MSSV</TableCell>
+                <TableCell align="center">Họ và tên</TableCell>
+                <TableCell align="center">Ngày sinh</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {dataList.length > 0 &&
+                dataList.map((row, index) => (
+                  <TableRow
+                    key={index}
+                    // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell align="center">{index + 1}</TableCell>
+                    <TableCell align="center">{row.mssv}</TableCell>
+                    <TableCell align="center">{row.fullname}</TableCell>
+                    <TableCell align="center">{row.birthdate}</TableCell>
+                    <TableCell align="center">{row.email}</TableCell>
+                    <TableCell align="center">
+                      <Button
+                        variant="contained"
+                        onClick={() => handleDeleteStudent(index)}
+                      >
+                        Xóa
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

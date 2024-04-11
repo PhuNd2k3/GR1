@@ -1,13 +1,15 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
+import homeIcon from "../../assets/home.png";
 import "./Header.css";
+import Home from "./../Home";
 
 export default function Header() {
   return (
     <div className="header">
       <div className="header__item">
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <img src={homeIcon} alt="Home" />
+        </Link>
       </div>
       <div className="header__item">
         <Link to="/data_table">Data Table</Link>
@@ -23,6 +25,9 @@ export default function Header() {
       </div>
       <div className="header__item">
         <Link to="/lesson_5">Lesson 5</Link>
+      </div>
+      <div className="header__item">
+        <Link to="/chart">Chart</Link>
       </div>
     </div>
   );

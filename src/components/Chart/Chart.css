@@ -1,0 +1,16 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100px;
+}
+table {
+    margin-top: 50px;
+}
+
+/* th:nth-child(even),
+td:nth-child(even) {
+    background-color: #d6eeee;
+} */
