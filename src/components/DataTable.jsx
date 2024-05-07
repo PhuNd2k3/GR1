@@ -12,6 +12,9 @@ import { Button } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import generatePDF from "react-to-pdf";
+
+import { CSVExportFiler } from "./Filer/CSV";
 
 export default function DataTable() {
   const [mssv, setMssv] = React.useState("");
@@ -33,6 +36,17 @@ export default function DataTable() {
     dataFiltered.splice(index, 1);
     setDataList(dataFiltered);
   };
+
+  const generateFileName = () => {
+    const d = new Date();
+    const day = d.getDay();
+    const month = d.getMonth() + 1;
+    const year = d.getFullYear();
+
+    return "DataTable " + day + "-" + month + "-" + year;
+  };
+
+  const targetPDF = React.useRef();
 
   return (
     <div
@@ -108,8 +122,24 @@ export default function DataTable() {
         </div>
       </Box>
 
+      <Box display="flex" justifyContent="flex-end" mt={2}>
+        <Button
+          variant="blue"
+          onClick={() =>
+            generatePDF(targetPDF, { filename: "hehe", page: { margin: 20 } })
+          }
+        >
+          PDF
+        </Button>
+        <CSVExportFiler csvData={dataList} fileName={generateFileName()} />
+      </Box>
+
       <div>
-        <TableContainer component={Paper} sx={{ maxHeight: "500px" }}>
+        <TableContainer
+          component={Paper}
+          sx={{ maxHeight: "500px" }}
+          ref={targetPDF}
+        >
           <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
             <TableHead>
               <TableRow>
