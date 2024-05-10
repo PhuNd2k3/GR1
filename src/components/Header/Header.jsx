@@ -18,13 +18,10 @@ export default function Header() {
         <Link to="/grid_image">Grid Image</Link>
       </div>
       <div className="header__item">
-        <Link to="/lesson_3">Lesson 3</Link>
+        <Link to="/maze">Maze</Link>
       </div>
       <div className="header__item">
-        <Link to="/lesson_4">Lesson 4</Link>
-      </div>
-      <div className="header__item">
-        <Link to="/lesson_5">Lesson 5</Link>
+        <Link to="/lesson_5">Map</Link>
       </div>
       <div className="header__item">
         <Link to="/chart">Chart</Link>
