@@ -123,14 +123,14 @@ export default function DataTable() {
       </Box>
 
       <Box display="flex" justifyContent="flex-end" mt={2}>
-        <Button
+        {/* <Button
           variant="blue"
           onClick={() =>
             generatePDF(targetPDF, { filename: "hehe", page: { margin: 20 } })
           }
         >
           PDF
-        </Button>
+        </Button> */}
         <CSVExportFiler csvData={dataList} fileName={generateFileName()} />
       </Box>
 

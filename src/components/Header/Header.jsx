@@ -8,7 +8,7 @@ export default function Header() {
     <div className="header">
       <div className="header__item">
         <Link to="/">
-          <img src={homeIcon} alt="Home" />
+          <img src={homeIcon} alt="Home" class="homeImage" />
         </Link>
       </div>
       <div className="header__item">
@@ -21,7 +21,7 @@ export default function Header() {
         <Link to="/maze">Maze</Link>
       </div>
       <div className="header__item">
-        <Link to="/lesson_5">Map</Link>
+        <Link to="/map">Map</Link>
       </div>
       <div className="header__item">
         <Link to="/chart">Chart</Link>
