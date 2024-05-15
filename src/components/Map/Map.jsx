@@ -11,7 +11,7 @@ export const Map = () => {
         display: "flex",
         flexDirection: "row",
         width: "100%",
-        height: "85vh",
+        height: "100vh",
         padding: "10px 10px 0px 5px",
       }}
     >
