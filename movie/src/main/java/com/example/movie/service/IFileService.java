@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public interface FileServiceSubsystem {
+public interface IFileService {
     String uploadFile(String path, MultipartFile file) throws IOException;
 
     InputStream getResourceFile(String path, String fileName) throws FileNotFoundException;
+
+    String getFilePath(String path, String fileName);
 }

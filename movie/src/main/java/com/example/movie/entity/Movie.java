@@ -16,20 +16,20 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer movieId;
 
-    @Column(nullable = false)
+    @Column
     private String title;
 
-    @Column(nullable = false)
+    @Column
     private String director;
 
-    @Column(nullable = false)
+    @Column
     private String studio;
 
     @ElementCollection
     @CollectionTable(name = "movie_cast")
     private Set<String> movieCast;
 
-    @Column(nullable = false)
+    @Column
     private Integer releaseYear;
 
     @Column

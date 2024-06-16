@@ -13,6 +13,7 @@ public class MovieDto {
 
     private Integer movieId;
 
+    //    @NotBlank(message = "Movie title can not blank")
     private String title;
 
     private String director;
