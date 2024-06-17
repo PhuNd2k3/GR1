@@ -13,33 +13,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer movieId;
+    private Integer genreId;
 
     @Column
-    private String title;
-
-    @Column
-    private String studio;
-
-    @Column
-    private Integer releaseYear;
-
-    @Column
-    private String poster;
+    private String name;
 
     @ManyToMany
     @JsonBackReference
-    Set<Actor> actors;
-
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "director_id")
-    private Director director;
-
-    @ManyToMany
-    @JsonBackReference
-    Set<Genre> genres;
+    Set<Movie> movies;
 }

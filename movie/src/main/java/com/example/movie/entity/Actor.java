@@ -1,5 +1,6 @@
 package com.example.movie.entity;
 
+import java.sql.Date;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -13,33 +14,24 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer movieId;
+    private Integer actorId;
+
+    @Column(nullable = false) // This specifies the column cannot be null
+    private String fullName;
 
     @Column
-    private String title;
+    private Date DOB;
 
     @Column
-    private String studio;
+    private String gender;
 
     @Column
-    private Integer releaseYear;
-
-    @Column
-    private String poster;
+    private String contactNumber;
 
     @ManyToMany
     @JsonBackReference
-    Set<Actor> actors;
-
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "director_id")
-    private Director director;
-
-    @ManyToMany
-    @JsonBackReference
-    Set<Genre> genres;
+    Set<Movie> castedMovies;
 }

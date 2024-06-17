@@ -1,10 +1,10 @@
 package com.example.movie.dto;
 
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -13,18 +13,20 @@ public class MovieDto {
 
     private Integer movieId;
 
-    //    @NotBlank(message = "Movie title can not blank")
+    // @NotBlank(message = "Movie title can not blank")
     private String title;
 
     private String director;
 
     private String studio;
 
-    private Set<String> movieCast;
-
     private Integer releaseYear;
 
     private String poster;
 
     private String posterUrl;
+
+    private Set<String> movieCast;
+
+    private Set<String> genre;
 }
